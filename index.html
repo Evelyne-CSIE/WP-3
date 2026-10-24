@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Evelyne — Personal Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0b0f19;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 15px;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2C3E50 0%, #1A252F 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 55px 20px 45px 20px;
+            border-bottom: 4px solid #e74c3c;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            color: #FADBD8;
+            font-family: Georgia, serif;
+        }
+
+        .header-subtitle {
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #f1948a;
+            margin-bottom: 15px;
+            font-family: Georgia, serif;
+        }
+
+        .header-datetime {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .header-date {
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        .hero-banner {
+            background-color: #0f172a;
+            padding: 50px 20px 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .hero-banner a {
+            display: inline-block;
+            max-width: 320px;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 380px;
+            display: block;
+            border-radius: 16px;
+            border: 4px solid #e74c3c;
+            box-shadow: 0 15px 35px rgba(231, 76, 60, 0.25);
+            object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.4);
+        }
+
+        .hero-caption {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
+
+        .grid-box {
+            padding: 45px 40px;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .grid-box h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+            letter-spacing: 0.5px;
+        }
+
+        .box-about {
+            background-color: #fdf6f0;
+            color: #4a3b32;
+            border-right: 1px solid #f0e1d5;
+            border-bottom: 1px solid #f0e1d5;
+        }
+
+        .box-about h2 {
+            color: #c0392b;
+        }
+
+        .box-about p {
+            margin-bottom: 16px;
+        }
+
+        .highlight-text {
+            color: #d35400;
+            font-weight: 700;
+        }
+
+        .box-highlights {
+            background-color: #0f2d26;
+            color: #e2fef2;
+            border-bottom: 1px solid #1c4a40;
+        }
+
+        .box-highlights h2 {
+            color: #52be80;
+        }
+
+        .highlight-item {
+            margin-bottom: 20px;
+        }
+
+        .highlight-item b {
+            display: block;
+            color: #2ecc71;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .custom-list {
+            padding-left: 18px;
+            margin-top: 4px;
+        }
+
+        .custom-list li {
+            margin-bottom: 6px;
+            color: #abebc6;
+        }
+
+        .music-start {
+            margin-top: 20px;
+            color: #abebc6;
+            font-size: 0.92rem;
+        }
+
+        .box-program {
+            background-color: #fcf3cf;
+            color: #513e0c;
+            border-right: 1px solid #f5e8b0;
+        }
+
+        .box-program h2 {
+            color: #b7950b;
+        }
+
+        .program-schedule {
+            margin-bottom: 22px;
+        }
+
+        .program-schedule div {
+            margin-bottom: 12px;
+        }
+
+        .program-time {
+            color: #d4ac0d;
+            font-weight: 700;
+            font-family: Georgia, serif;
+            font-size: 1.05rem;
+        }
+
+        .update-section {
+            margin-top: 22px;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 14px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .update-header {
+            color: #b7950b;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .old-time-text {
+            color: #a04000;
+            display: block;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .new-time-text {
+            color: #7e5109;
+            display: block;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+
+        .box-tickets {
+            background-color: #1b263b;
+            color: #e0e6ed;
+        }
+
+        .box-tickets h2 {
+            color: #5dade2;
+        }
+
+        .ticket-pricing {
+            margin-bottom: 20px;
+        }
+
+        .special-price-row {
+            margin-top: 4px;
+            color: #f7dc6f;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .ticket-includes {
+            margin-bottom: 20px;
+            color: #a9cce3;
+        }
+
+        .ticket-limit {
+            margin-bottom: 22px;
+        }
+
+        .ticket-limit strong {
+            color: #5dade2;
+        }
+
+        .ticket-link-container a {
+            color: #85c1e9;
+            text-decoration: underline;
+        }
+
+        .footer-section {
+            background: linear-gradient(135deg, #1a252f 100%, #2c3e50 0%);
+            color: #ffffff;
+            text-align: center;
+            padding: 45px 20px 50px 20px;
+            border-top: 4px solid #e74c3c;
+        }
+
+        .footer-section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-family: Georgia, serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-address {
+            font-style: normal;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #d5d8dc;
+        }
+
+        .footer-links-divider {
+            margin-top: 10px;
+        }
+
+        a:link {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #bb8fce;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        .footer-section a:link {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+
+        .footer-section a:visited {
+            color: #f1948a;
+            text-decoration: underline;
+        }
+
+        .footer-section a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-section a:active {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .box-about {
+                border-right: none;
+            }
+
+            .box-program {
+                border-right: none;
+                border-bottom: 1px solid #f5e8b0;
+            }
+
+            .header-title {
+                font-size: 2.3rem;
+            }
+
+            .grid-box {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <div class="header-section">
+            <h1 class="header-title">EVELYNE</h1>
+            <p class="header-subtitle"><abbr title="Computer Science">CS</abbr> Student &amp; Community Volunteer</p>
+            <div class="header-datetime">
+                <span class="header-date">Real-Life Student Journey</span> &bull; Taipei, Taiwan
+            </div>
+        </div>
+
+        <div class="hero-banner">
+            <a href="https://github.com" target="_blank" title="Visit My GitHub Profile">
+                <img src="IMG_9180.jpg" 
+                     alt="Evelyne Profile Picture" 
+                     class="hero-image">
+            </a>
+            <p class="hero-caption">&bull; Click the image to visit my GitHub profile &bull;</p>
+        </div>
+
+        <div class="grid-container">
+
+            <div class="grid-box box-about">
+                <h2>About Me</h2>
+                <p>Hello! I am currently balancing life as a second-year <span class="highlight-text">Computer Science undergraduate</span> studying in Taipei, alongside working a part-time job and active community involvement.</p>
+                <p>Balancing programming assignments, kitchen shifts, and community service keeps my daily life productive, balanced, and meaningful.</p>
+                <p>&ldquo;Embracing hard work, mindfulness, and continuous learning every day.&rdquo;</p>
+            </div>
+
+            <div class="grid-box box-highlights">
+                <h2>Buddhist Organization</h2>
+                
+                <div class="highlight-item">
+                    <b>Buddhist Youth Association</b>
+                    <ul class="custom-list">
+                        <li>Active member &amp; volunteer in temple youth activities</li>
+                        <li>Assisting with event coordination &amp; community service</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-item">
+                    <b>Community &amp; Culture</b>
+                    <ul class="custom-list">
+                        <li>Promoting social harmony and cultural values</li>
+                        <li>Collaborating on charitable events and Dharma programs</li>
+                    </ul>
+                </div>
+
+                <p class="music-start">Fostering inner peace and community connection.</p>
+            </div>
+
+            <div class="grid-box box-program">
+                <h2>Routine &amp; Schedule</h2>
+                
+                <div class="program-schedule">
+                    <div><span class="program-time">Morning &ndash; Afternoon</span> &bull; University Classes &amp; Labs</div>
+                    <div><span class="program-time">Evening</span> &bull; Part-Time Kitchen Shift &amp; Study</div>
+                    <div><span class="program-time">Weekends</span> &bull; Temple Activities &amp; Exercise</div>
+                </div>
+
+                <div class="update-section">
+                    <span class="update-header">Weekly Milestone:</span>
+                    <del class="old-time-text">Focusing strictly on indoor coding all week.</del>
+                    <ins class="new-time-text">Successfully balancing academics, work, and community service.</ins>
+                </div>
+            </div>
+
+            <div class="grid-box box-tickets">
+                <h2>Hobbies &amp; Interests</h2>
+                
+                <div class="ticket-pricing">
+                    <div>Fitness: <del>Sedentary lifestyle</del></div>
+                    <div class="special-price-row">Routine: Jogging, Swimming &amp; Badminton</div>
+                </div>
+
+                <div class="ticket-includes">
+                    <p>Other Interests:</p>
+                    <p>Listening to music, song composition &amp; traveling</p>
+                </div>
+
+                <p class="ticket-limit">Current Vibe: <strong>Mindful &amp; Productive</strong></p>
+
+                <p class="ticket-link-container"><a href="https://github.com" target="_blank">View GitHub Repository</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-section">
+            <h2>Contact Me</h2>
+            <address class="footer-address">
+                <div>Evelyne &bull; Personal Portfolio</div>
+                <div>National Taipei University of Technology, Taipei, Taiwan</div>
+                <div class="footer-links-divider">
+                    <a href="mailto:tomoko9un@gmail.com">tomoko9un@gmail.com</a> &bull; 
+                    <a href="tel:+886912345678">+886-912-345-678</a>
+                </div>
+            </address>
+        </div>
+
+    </div>
+
+</body>
+</html>
